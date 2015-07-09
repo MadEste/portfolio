@@ -1,3 +1,11 @@
 <h1><%= @project.title %></h1>
-<h3><%= @project.url %></h3>
+<br>
+<img src="<%= @project.url %>"alt="External Flickr Image" style="width:300px;height:300px;">
 <h3><%= @project.description %></h3>
+<br>
+<% if admin_signed_in? %>
+	<%= link_to "Edit", edit_project_path(@project) %>  
+	<%= link_to "Delete", project_path(@project), method: :delete, data: { confirm: "Are you sure?" } %>  
+<% end %>
+<%= link_to "Back", projects_path %>
+<br> 

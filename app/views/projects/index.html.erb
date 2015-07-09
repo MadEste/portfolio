@@ -1,1 +1,14 @@
 <h1>This is Placeholder for Projects</h1>
+
+<% @project.each do |project| %>
+	<%= link_to project do %>
+		<%= image_tag project.url, style: "width:200px;height:150px;" %>
+	<% end %>
+	<h2><%= link_to project.title, project %></h2>
+	<% if admin_signed_in? %>
+		<%= link_to "Edit", edit_project_path(project) %>
+	<% end %>
+<% end %>
+<% if admin_signed_in? %>
+	<%= link_to "New", new_project_path %> 
+<% end %>
