@@ -1,9 +1,14 @@
 class ProjectsController < ApplicationController
 	before_action :find_project, only:[:show,:edit,:update,:destroy]
-	before_action :authenticate_admin!, except: [ :show ]
+	before_action :authenticate_admin!, except: [ :show, :index ]
 	
 	def index
-		@project = Project.all.order("updated_at DESC")
+		if params[:category].blank?
+			@projects = Project.all.order("updated_at DESC")
+		else
+			@category_id = Category.find_by(name: params[:category]).id
+			@projects = Project.where(category_id: @category_id).order("updated_at DESC")
+		end
 	end
 
 	def show
