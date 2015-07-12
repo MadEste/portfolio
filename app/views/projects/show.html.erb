@@ -1,6 +1,11 @@
 <h1><%= @project.title %></h1>
 <br>
-<img src="<%= @project.url %>"alt="External Flickr Image" style="width:300px;height:300px;">
+
+<% if @project.video.blank? %>
+	<img src="<%= @project.url %>" alt="External Flickr Image" style="width:300px;height:300px;">
+<% else %>
+	<iframe src="<%= @project.video %>" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+<% end %>
 <h3><%= @project.description %></h3>
 <br>
 <% if admin_signed_in? %>
@@ -8,4 +13,4 @@
 	<%= link_to "Delete", project_path(@project), method: :delete, data: { confirm: "Are you sure?" } %>  
 <% end %>
 <%= link_to "Back", projects_path %>
-<br> 
+<br>
