@@ -11,6 +11,10 @@
 		<div class="nav navbar navbar-default">
 			<div class="container">
 				<div class="navbar-brand" style="margin-left:50px;"><%= link_to "Find Este", root_path %></div>
+				<%= link_to image_tag("https://farm1.staticflickr.com/259/19325886540_ef959ed1ce_o.png", size: "60x60"), root_path, class: "navbar-left", style: "margin-left:-15px;"%>
+
+
+
 				<ul class="nav navbar-nav" style="margin-top:10px;">
 					<% Category.all.each do |category| %>
 						<li><%= link_to category.name, projects_path(category: category.name) %></li>

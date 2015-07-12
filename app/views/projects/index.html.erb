@@ -1,4 +1,10 @@
-<h1>This is Placeholder for Projects</h1>
+<% if @category_id.blank? %>
+	<h1>All My Work</h1>
+<% else %>
+	<h1><%= Category.find_by(id: @category_id).name %></h1>
+<% end %>
+<br>
+
 
 <% @projects.each_slice(3) do |projects| %>
 	<div class="row">

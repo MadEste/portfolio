@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150709010549) do
+ActiveRecord::Schema.define(version: 20150712033507) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -44,6 +44,9 @@ ActiveRecord::Schema.define(version: 20150709010549) do
     t.datetime "updated_at",  null: false
     t.string   "url"
     t.integer  "category_id"
+    t.string   "slug"
   end
+
+  add_index "projects", ["slug"], name: "index_projects_on_slug"
 
 end
