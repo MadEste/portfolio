@@ -1,8 +1,20 @@
 <%= simple_form_for @project do |f| %>
 	<%= f.collection_select :category_id, Category.all, :id, :name, {prompt: "Choose a category"} %> 
+	<p>Fill out Title, URL should be a square image, Do not fill out multiple fields.</p>
 	<%= f.input :title %>
 	<%= f.input :url %>
+	<hr>
+	<%= f.input :largeimg %>
+	<hr>
 	<%= f.input :video %>
+	<hr>
+	<%= f.input :flash %>
+	<%= f.input :fx %>
+	<%= f.input :fy %>
+	<hr>
+	<%- f.input :externalname %>
+	<%= f.input :externalurl %>
 	<%= f.input :description %>
+	<hr>
 	<%= f.button :submit %>
 <% end %>

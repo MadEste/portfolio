@@ -1,10 +1,32 @@
 <h1><%= @project.title %></h1>
 <br>
 
-<% if @project.video.blank? %>
+<% if @project.video.blank? && @project.flash.blank? %>
 	<img src="<%= @project.url %>" alt="External Flickr Image" style="width:300px;height:300px;">
-<% else %>
+<% elsif @project.video.present? %>
 	<iframe src="<%= @project.video %>" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+<% else %>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
+	<script type="text/javascript">
+		var flashvars = {};
+		var params = {};
+		var attributes = {};
+				
+		
+		params.bgcolor="#FFFFFF"; 
+		
+		attributes.name = "";
+		attributes.styleclass = "";
+		attributes.align = "";			
+		swfobject.embedSWF("<%= @project.flash %>", "flashContent", "<%= @project.fx %>", "<%= @project.fy %>", "9.0.0", false, flashvars, params, attributes);
+	</script>
+
+	<div id="flashContent">
+		Get <a href="http://www.adobe.com/go/getflash">Adobe Flash Player</a>. Embedded with the help of <a href="http://embed-swf.org">embed-swf.org</a>.
+	</div>
+<% end %>
+<% if @project.externalurl.present? %>
+	<p>Put Link here</p>
 <% end %>
 <h3><%= @project.description %></h3>
 <br>
@@ -14,3 +36,6 @@
 <% end %>
 <%= link_to "Back", projects_path %>
 <br>
+
+
+		
