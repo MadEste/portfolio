@@ -14,7 +14,7 @@
 	<hr>
 	<%- f.input :externalname %>
 	<%= f.input :externalurl %>
-	<%= f.input :description %>
+	<%= f.input :description, input_html: {rows: 20} %>
 	<hr>
 	<%= f.button :submit %>
 <% end %>
