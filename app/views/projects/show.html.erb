@@ -18,7 +18,7 @@
 		params.bgcolor="#FFFFFF"; 
 		
 		attributes.name = "";
-		attributes.styleclass = "";
+		attributes.styleclass = "project_flash";
 		attributes.align = "";			
 		swfobject.embedSWF("<%= @project.flash %>", "flashContent", "<%= @project.fx %>", "<%= @project.fy %>", "9.0.0", false, flashvars, params, attributes);
 	</script>
