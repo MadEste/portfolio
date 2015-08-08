@@ -1,8 +1,10 @@
 <h1><%= @project.title %></h1>
 <br>
 
-<% if @project.video.blank? && @project.flash.blank? %>
+<% if @project.video.blank? && @project.flash.blank? && @project.largeimg.blank?%>
 	<%= image_tag @project.url, class: "project_image" %>
+<% elsif @project.largeimg.present? %>
+	<%= image_tag @project.largeimg, class: "project_image" %>
 <% elsif @project.video.present? %>
 	<div class: "project_flash">
 		<iframe src="<%= @project.video %>" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
