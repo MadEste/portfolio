@@ -1,28 +1,12 @@
-== README
+This Portfolo Site App is meant to be deployed as a 1 user system.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Devise Registrations have been disabled
 
-Things you may want to cover:
+After deploying add addmin via rails console. 
 
-* Ruby version
+category models must also be added via rails console. 
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Gems Used ==>  gem 'bootstrap-sass', '~> 3.3.5.1' 	(easy bootstrap implementation)
+					gem 'simple_form', '~> 3.1.0'			(Forms)
+					gem 'devise', '~> 3.5.1'				(Admin authentication)
+					gem 'friendly_id', '~> 5.1.0'			(custom slugs)
